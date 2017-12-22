@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ba5f6e94-936a-4fda-86d8-07269fc753e0">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="bln" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="thn" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select * from penjualan
+where month(tgl_transaksi) = $P{bln}
+and year(tgl_transaksi) = $P{thn}]]>
+	</queryString>
+	<field name="no_transaksi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tgl_transaksi" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kd_barang" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="totalharga" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Kasir" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="101" y="19" width="383" height="60" uuid="5d6cbe6b-2e6f-48d9-b048-74e7e2a2db41"/>
+				<textElement>
+					<font size="36" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN BULANAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="54" splitType="Stretch">
+			<textField pattern="MM/yyyy">
+				<reportElement x="122" y="34" width="100" height="20" uuid="709e0181-c1d8-4d69-9aa7-05c1afb3b0bb"/>
+				<textFieldExpression><![CDATA[$F{tgl_transaksi}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="22" y="34" width="100" height="20" uuid="a3c54494-b6af-4847-9b92-b65c9364480f"/>
+				<text><![CDATA[BULAN]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="22" y="41" width="100" height="20" uuid="558f8cb9-768f-4d01-bc69-fcebd839a0a1"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[no_transaksi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="122" y="41" width="100" height="20" uuid="00d5d0e2-27c9-4e74-a338-65fb2187535d"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[kd_barang]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="222" y="41" width="100" height="20" uuid="fae41909-392c-4e67-942b-aa07584bb656"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="322" y="41" width="100" height="20" uuid="0ecffd82-1d80-4138-81c3-07ca99e3ecea"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[totalharga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="422" y="41" width="100" height="20" uuid="bd995812-9a51-4eb9-9674-338b4cb2245f"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Kasir]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="22" y="0" width="100" height="20" uuid="9a422d38-b8af-4f32-b237-c3152013eeb8"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{no_transaksi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="122" y="0" width="100" height="20" uuid="0e07ab63-66bd-42a8-bb58-303943c029ea"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kd_barang}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="100" height="20" uuid="da9c9d42-24af-4e85-8aa9-63e390e28021"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="0" width="100" height="20" uuid="97aa855f-37df-4ce3-97b8-9738148c198d"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{totalharga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="100" height="20" uuid="1a9ca348-f341-4e97-bee1-9684add07fa5"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{Kasir}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
